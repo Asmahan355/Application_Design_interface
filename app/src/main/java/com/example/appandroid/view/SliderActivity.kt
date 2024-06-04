@@ -33,7 +33,7 @@ class SliderActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this);
         // checking for first time launch - before calling setContebtView()
         prefManger= PrefManger(this)
-        if(!prefManger!!.isFirstTimLaunch)
+        if(!prefManger!!.isFirstTimeLaunch)
         {
             launchHomeScreen()
             finish()
@@ -148,7 +148,7 @@ class SliderActivity : AppCompatActivity() {
 
 
     private fun launchHomeScreen() {//la page qui sera affichée
-        prefManger!!.isFirstTimLaunch=false
+        prefManger!!.isFirstTimeLaunch=false
         startActivity(Intent(this,VerificationActivity::class.java))
         finish()
      }
