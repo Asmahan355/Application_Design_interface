@@ -17,16 +17,19 @@
         <item name="cornerFamilyBottomLeft">rounded</item>
     </style>
 
-    <style name="Button8">
+    <style name="Button8" parent="Widget.MaterialComponents.Button">
         <item name="cornerSizeBottomRight">70%</item>
         <item name="cornerSizeBottomLeft">70%</item>
         <item name="cornerSizeTopLeft">40%</item>
         <item name="cornerSizeTopRight">40%</item>
+        <!-- Autres attributs de style -->
     </style>
 
-    <style name="Button4">
+    <style name="Button4" parent="Widget.MaterialComponents.Button">
         <item name="cornerSize">30%</item>
+        <!-- Autres attributs de style -->
     </style>
+
     <style name="ItemImag">
         <item name="cornerSize">20%</item>
     </style>

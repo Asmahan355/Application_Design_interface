@@ -8,36 +8,35 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.ActionBar
-import com.example.appandroid.MainActivity
 import com.example.appandroid.R
-import kotlinx.coroutines.delay
+import com.google.firebase.FirebaseApp
+
 
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
-        val actionBar: ActionBar?=supportActionBar
-        val ani: Animation =AnimationUtils.loadAnimation(
+        FirebaseApp.initializeApp(this);
+
+        val actionBar :ActionBar? = supportActionBar
+        actionBar?.hide()
+
+        val imageView = findViewById<ImageView>(R.id.imageView1)
+        val ani :Animation = AnimationUtils.loadAnimation(
             this@WelcomeActivity,R.anim.left_to_right
         )
-        val imageView = findViewById<ImageView>(R.id.imageView1)
-
-
         imageView.setAnimation(ani)
-        try{
+        try {
             Handler().postDelayed(
                 {
                     startActivity(Intent(
-                        this@WelcomeActivity,MainActivity::class.java))
+                        this@WelcomeActivity, SliderActivity::class.java))
                     finish()
                 },3000
             )
-
-        }catch (e:Exception)
-        {
+        }catch (e:Exception){
             e.printStackTrace()
         }
 
-
-        }
     }
+}
