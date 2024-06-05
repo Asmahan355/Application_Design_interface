@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.SetupProfileActivity">
+<ImageView
+    android:id="@+id/imageView"
+    android:layout_marginTop="32dp"
+    android:src="@drawable/avatar"
+    android:layout_width="150dp"
+    android:layout_height="150dp"/>
+    <TextView
+        android:text="Profile Information"
+        android:textAlignment="center"
+        android:layout_marginTop="19dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#17246A"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:text="Please Set your Name and an optional Profile Image"
+        android:textAlignment="center"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:textColor="#383839"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.cardview.widget.CardView
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="15dp"
+        android:background="@color/white"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/nameBox"
+        android:hint="Type your Name"
+        android:ems="1"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1c1c1c"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/backgrounds_shapes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/continueBtn2"
+            android:text="Setup Profile"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/bg_screen3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+     </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

@@ -91,7 +91,7 @@ class OtpActivity : AppCompatActivity() {
             auth!!.signInWithCredential(credential)
                 .addOnCompleteListener { task->
                     if (task.isSuccessful){
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, SetupProfileActivity::class.java)
                         startActivity(intent)
                         finishAffinity()
                     }

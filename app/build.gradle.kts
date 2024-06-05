@@ -38,6 +38,8 @@ android {
 }
 
 dependencies {
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     val lifeCycleExtensionVersion = "1.1.1"
     val supportVersion = "28.0.0"
     val retrofitVersion = "2.3.0"
