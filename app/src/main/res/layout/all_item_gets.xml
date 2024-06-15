@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 1-->
+        <include layout="@layout/category" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".4"
+            android:background="@android:color/darker_gray"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:elevation="@dimen/fab_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/best_offer"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="start|center"
+                android:textSize="@dimen/slide_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="@string/see_all"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/bg_screen3"
+                android:textStyle="normal"
+                android:layout_gravity="end|center"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <!--2-->
+        <include layout="@layout/slider_view"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".4"
+            android:background="@android:color/darker_gray"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:elevation="@dimen/fab_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:text="Grocery"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="start|center"
+                android:textSize="@dimen/slide_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="@string/see_all"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/pink"
+                android:textStyle="normal"
+                android:layout_gravity="end|center"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <!--3-->
+        <include layout="@layout/grocery_item"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".4"
+            android:background="@android:color/darker_gray"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:elevation="@dimen/fab_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:text="Kids Toy"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="start|center"
+                android:textSize="@dimen/slide_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="@string/see_all"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/green"
+                android:textStyle="normal"
+                android:layout_gravity="end|center"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <!-- 4-->
+        <include layout="@layout/toy_item"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".4"
+            android:background="@android:color/darker_gray"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:elevation="@dimen/fab_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/all_category"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="start|center"
+                android:textSize="@dimen/slide_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="@string/see_all"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="#009688"
+                android:textStyle="normal"
+                android:layout_gravity="end|center"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <!-- 5-->
+        <include layout="@layout/all_catgory"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".4"
+            android:background="@android:color/darker_gray"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:elevation="@dimen/fab_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/womancolth"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="start|center"
+                android:textSize="@dimen/slide_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="@string/see_all"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/bloue"
+                android:textStyle="normal"
+                android:layout_gravity="end|center"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <!-- 6-->
+        <include layout="@layout/woman_colth_item"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".4"
+            android:background="@android:color/darker_gray"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:elevation="@dimen/fab_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/mencolth"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="start|center"
+                android:textSize="@dimen/slide_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="@string/see_all"
+                android:padding="@dimen/margin_btn"
+                android:layout_margin="@dimen/margin_btn"
+                android:textColor="@color/green"
+                android:textStyle="normal"
+                android:layout_gravity="end|center"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+        <!-- 7-->
+        <include layout="@layout/man_clothes_item"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha=".4"
+            android:background="@android:color/darker_gray"
+            />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home"
+        />
+    <item
+        android:title="@string/my_account"
+        >
+        <menu>
+            <item
+                android:id="@+id/profile"
+                android:icon="@drawable/ic_person"
+                android:title="@string/my_profile"
+                />
+            <item
+                android:id="@+id/rewards"
+                android:icon="@drawable/ic_rewards"
+                android:title="@string/my_rewards"
+                />
+            <item
+                android:id="@+id/orders"
+                android:icon="@drawable/ic_newlaunch"
+                android:title="@string/my_orders"
+                />
+            <item
+                android:id="@+id/notif"
+                android:icon="@drawable/ic_notifications"
+                android:title="My Notification"
+                />
+        </menu>
+    </item>
+    <item
+        android:title="@string/contact_us"
+        android:id="@+id/conta"
+        android:icon="@drawable/ic_contact"
+        />
+    <item
+        android:title="@string/favourite_zone"
+        >
+        <menu>
+            <item
+                android:icon="@drawable/ic_book"
+                android:title="@string/recipes"
+                />
+            <item
+                android:icon="@drawable/ic_contion"
+                android:title="@string/terms_and_conditions"
+                />
+            <item
+                android:icon="@drawable/ic_privacy"
+                android:title="Privacy Policy"
+                />
+        </menu>
+    </item>
+    <item
+        android:title="@string/share"
+        android:icon="@drawable/ic_share"
+        />
+
+
+</menu>
