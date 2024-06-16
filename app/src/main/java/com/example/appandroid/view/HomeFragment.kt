@@ -7,26 +7,48 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.example.appandroid.R
 import com.example.appandroid.R.id
 import com.example.appandroid.adapter.CategoryAdapter
 import com.example.appandroid.adapter.SliderAdapter
 import com.example.appandroid.model.CategoryData
 import com.example.appandroid.model.SliderItem
+import com.example.appandroid.model.User
 import com.example.appandroid.uiltels.categoryItemList
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
+import com.google.android.material.navigation.NavigationBarMenuView
+import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 
 
 class HomeFragment : Fragment() {
+
+
+
+    private lateinit var drawLayout:DrawerLayout
+    private lateinit var menuDraw:ImageView
+    private lateinit var nuviget:NavigationView
+    var user: User?=null
+    var database:FirebaseDatabase?=null
+
 
     private lateinit var catList: ArrayList<CategoryData>
     private lateinit var catAdapter:CategoryAdapter
@@ -40,6 +62,7 @@ class HomeFragment : Fragment() {
 
    var firebaseFireStore:FirebaseFirestore?=null
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,15 +73,65 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initss(view)
     }
 
     private fun initss(v:View)
     {
+        drawLayout=v.findViewById(R.id.mainDrawer)
+        menuDraw=v.findViewById(R.id.profileImgs)
+        nuviget=v.findViewById(R.id.navDrawer)
+
+
         viewPagerImageSlider=v.findViewById(R.id.viewPagerImageSlider)
 
+        database= FirebaseDatabase.getInstance()
+        database!!.reference.child("users")
+            .child(FirebaseAuth.getInstance().uid!!)
+            .addValueEventListener(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                user=snapshot.getValue(User::class.java)
+                    val userImg11=v.findViewById<ImageView>(R.id.userImg1)
+
+                    val profileImgs=v.findViewById<ImageView>(R.id.profileImgs)
+                    val userName1=v.findViewById<TextView>(R.id.userName1)
+                    val userMob1=v.findViewById<TextView>(R.id.userMob1)
+
+
+                    if(user!!.uid.equals(FirebaseAuth.getInstance().uid))
+                    {
+                        Glide.with(v.context)
+                            .load(user?.phoneImage)
+                            .placeholder(R.drawable.avatar)
+                            .into(userImg11)
+                        Glide.with(requireActivity())
+                            .load(user?.phoneImage)
+                            .placeholder(R.drawable.avatar)
+                            .into(profileImgs)
+                        userName1.text=user!!.name
+                        userMob1.text=user!!.phoneNumber
+
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+
+            })
+
+
+        openDraw()
         catgoryData(v)
         sliderView()
+    }
+
+    private fun openDraw() {
+        menuDraw.setOnClickListener {
+          drawLayout.openDrawer(GravityCompat.START)
+        }
+        nuviget.itemIconTintList=null
+
     }
 
     fun catgoryData(v:View)
