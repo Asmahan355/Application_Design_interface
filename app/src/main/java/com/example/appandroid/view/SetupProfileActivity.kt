@@ -28,7 +28,8 @@ class SetupProfileActivity : AppCompatActivity() {
     var selectedImage: Uri? = null
     var dialog: ProgressDialog? = null
     var firebaseFireStore: FirebaseFirestore? = null
-    val imageView = findViewById<ImageView>(R.id.imageView)
+    private lateinit var imageView: ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +46,7 @@ class SetupProfileActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        val imageView = findViewById<ImageView>(R.id.imageView)
+        imageView = findViewById<ImageView>(R.id.imageView)
         imageView.setOnClickListener {
             val intent = Intent()
             intent.action = Intent.ACTION_GET_CONTENT
@@ -143,36 +144,36 @@ class SetupProfileActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-     if(data!=null)
-     {
-         if(data.data!=null)
-         {
-             val uri=data.data
-             val storage=FirebaseStorage.getInstance()
-             val time=Date().time
-             val refrence=storage.reference
-                 .child("Profiles")
-                 .child(time.toString()+"")
-             refrence.putFile(uri!!)
-                 .addOnCompleteListener{ task->
-                     if(task.isSuccessful){
-                         refrence.downloadUrl.addOnSuccessListener { uri->
-                           val filePath=uri.toString()
-                             val obj=HashMap<String,Any>()
-                             obj["image"]=filePath
-                             database!!.reference.child("users")
-                                 .child(FirebaseAuth.getInstance().uid!!)
-                                 .updateChildren(obj)
-                                 .addOnSuccessListener {  }
-                         }
-                     }
+        if(data!=null)
+        {
+            if(data.data!=null)
+            {
+                val uri=data.data
+                val storage=FirebaseStorage.getInstance()
+                val time=Date().time
+                val refrence=storage.reference
+                    .child("Profiles")
+                    .child(time.toString()+"")
+                refrence.putFile(uri!!)
+                    .addOnCompleteListener{ task->
+                        if(task.isSuccessful){
+                            refrence.downloadUrl.addOnSuccessListener { uri->
+                                val filePath=uri.toString()
+                                val obj=HashMap<String,Any>()
+                                obj["image"]=filePath
+                                database!!.reference.child("users")
+                                    .child(FirebaseAuth.getInstance().uid!!)
+                                    .updateChildren(obj)
+                                    .addOnSuccessListener {  }
+                            }
+                        }
 
-                 }
+                    }
 
 
-             imageView.setImageURI(data.data)
-             selectedImage=data.data
-         }
-     }
+                imageView.setImageURI(data.data)
+                selectedImage=data.data
+            }
+        }
     }
 }
